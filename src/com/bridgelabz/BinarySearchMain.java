@@ -9,6 +9,17 @@ public class BinarySearchMain {
         bsTree.add(56);
         bsTree.add(70);
         bsTree.add(30);
+        //uc2
+        bsTree.add(60);
+        bsTree.add(22);
+        bsTree.add(65);
+        bsTree.add(11);
+        bsTree.add(67);
+        bsTree.add(3);
+        bsTree.add(16);
+        bsTree.add(63);
+        bsTree.show();
+
     }
 }
 

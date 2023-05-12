@@ -11,19 +11,33 @@ public class BinarySearch<T extends Comparable<T>> {
             root = newNode;
             return;
         }
-        // initializing currenctPointer = root
-        INode<T> currentPointer = root;
-        while(currentPointer.NextRN != null && currentPointer.NextLN != null) {
+        INode<T> currentPointer= root;
+        while(true) {
             if (data.compareTo(currentPointer.data) < 0) {
+                if(currentPointer.NextLN == null){
+                    currentPointer.NextLN= newNode;
+                    return;
+                }
                 currentPointer = currentPointer.NextLN;
             } else {
+                if(currentPointer.NextRN == null){
+                    currentPointer.NextRN= newNode;
+                    return;
+                }
                 currentPointer = currentPointer.NextRN;
             }
         }
-        if(data.compareTo(currentPointer.data) < 0)
-            currentPointer.NextLN= newNode;
-        else
-            currentPointer.NextRN= newNode;
+    }
+    public void traverse(INode<T> currentPointer){
+        if (currentPointer == null)
+            return;
+        traverse(currentPointer.NextLN);
+        System.out.print(currentPointer.data+" ");
+        traverse(currentPointer.NextRN);
+    }
+
+    public void show(){
+        traverse(root);
     }
 
 }
