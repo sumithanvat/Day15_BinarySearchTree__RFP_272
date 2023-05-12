@@ -28,16 +28,30 @@ public class BinarySearch<T extends Comparable<T>> {
             }
         }
     }
-    public void traverse(INode<T> currentPointer){
+    public void show(INode<T> currentPointer){
         if (currentPointer == null)
             return;
-        traverse(currentPointer.NextLN);
+        show(currentPointer.NextLN);
         System.out.print(currentPointer.data+" ");
-        traverse(currentPointer.NextRN);
+        show(currentPointer.NextRN);
     }
 
-    public void show(){
-        traverse(root);
+    public void search(INode<T> currentPointer,T data){
+        while(currentPointer!=null) {
+            int value= data.compareTo(currentPointer.data);
+            switch (value){
+                case -1:
+                    currentPointer = currentPointer.NextLN;
+                    break;
+                case 1:
+                    currentPointer = currentPointer.NextRN;
+                    break;
+                default:
+                    System.out.println("Element Found!!!");
+                    return;
+            }
+        }
+        System.out.println("Element Not Found!!!");
     }
 
 }
